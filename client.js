@@ -10,9 +10,15 @@ const connect = function () {
   
   const conn = net.createConnection({
     host: '172.31.117.246',
-    port: 50541
+    port: 50541,
+    name: 'SNK'
   });
 
+
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server')
+    conn.write('Name: SNK')
+  })
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
