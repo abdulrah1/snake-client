@@ -2,6 +2,10 @@
 
 const net = require("net");
 const { stdin } = require("process");
+const { moveDownKey,
+  moveLeftKey,
+  moveUpKey,
+  moveRightKey} = require('./constants')
 
 let connection;
 
@@ -29,13 +33,13 @@ const handleUserInput = function(userInput) {
   // if user ctrl + c then exit the terminal.
   if (userInput === '\u0003') {
     process.exit();
-  } if (userInput === 'w') { // if userInput = w
+  } if (userInput === moveUpKey) { // if userInput = w
     connection.write('Move: up');
-  } if (userInput === 'a') {
+  } if (userInput === moveLeftKey) {
     connection.write('Move: left');
-  } if (userInput === 's') {
+  } if (userInput === moveDownKey) {
     connection.write('Move: down');
-  } if (userInput === 'd') {
+  } if (userInput === moveRightKey) {
     connection.write('Move: right');
   };
 
